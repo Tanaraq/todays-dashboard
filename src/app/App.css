@@ -1,0 +1,49 @@
+.App {
+  min-height: 100vh;
+  text-align: center;
+  background-image: url('../features/themes/background-images/mYv2Ir.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 5%;
+}
+
+.segment {
+  background-color: white;
+  opacity: 0.7;
+  border-radius: 1em ;
+}
+
+header {
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.today {
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 3%;
+}
+.weather {
+  height: 20vh;
+}
+
+.projects {
+  height: 10vh;
+}
+
+main {
+  height: 50vh;
+}
+
+.App-link {
+  color: rgb(112, 76, 182);
+}
