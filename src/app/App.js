@@ -15,7 +15,7 @@ function App() {
       
         <Projects />
       <main>
-        <div className='segment'>
+        <div className='main segment'>
           <p>task</p>
           <p>task</p>
           <p>task</p>
