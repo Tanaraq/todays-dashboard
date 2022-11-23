@@ -41,7 +41,8 @@ export const weatherSlice = createSlice({
                     winds: action.payload.liveweer[0].winds,
                     windr: action.payload.liveweer[0].windr,
                     verw: action.payload.liveweer[0].verw,
-                    img: action.payload.liveweer[0].image
+                    img:`weather-icons/${action.payload.liveweer[0].image}.png`
+                    
                 }
             })
             .addCase(getWeather.rejected, (state) =>{
