@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectWeather, getWeather } from "./weatherSlice";
 
@@ -6,6 +6,7 @@ import { selectWeather, getWeather } from "./weatherSlice";
 export const Weather = () => {
     const dispatch = useDispatch();
     const weather = useSelector(selectWeather);
+    const [isActive, setIsActive] = useState(false); // to fold out the weatherprediction (accordion-menu)
    
     useEffect(() => {  
         dispatch(getWeather());
@@ -13,7 +14,7 @@ export const Weather = () => {
     );
 
     return(
-        <div className="weather segment">
+        <div className="weather segment" onClick={() => setIsActive(!isActive)}>
             <h3>{weather.location}</h3> 
             <div className= "row">
                 <div className="column">                    
@@ -26,8 +27,14 @@ export const Weather = () => {
                     
                 </div>  
             </div>
-            <p>nu: {weather.samenv}</p>
-            <p>straks: {weather.verw}</p>
+
+            {isActive &&
+            <div>
+                <p>nu: {weather.samenv}</p>
+                <p>straks: {weather.verw}</p>
+            </div>
+            }
+
         </div>
     )
 }

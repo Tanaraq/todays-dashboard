@@ -15,16 +15,16 @@ export const Task = ({task,id}) => {
                 <div className="buttons">
                     
                     <button onClick={()=> dispatch(toggleTaskDone(id))} >
-                        {task.isDone ? "Redo" : "Done"}
+                        {task.isDone ? "Redo" : <i class="fa-solid fa-check"></i>}
                         <Confetti active={task.isDone} config={{ spread: 360 }} />
                     </button>  
                     
                     <button onClick={()=> dispatch(toggleDoToday(id))}>
-                        !
+                      <i class="fa-regular fa-heart"></i>
                     </button>
 
                     <button onClick={()=> dispatch(removeTask(id))} >
-                        &#10008;
+                      <i class="fa-solid fa-xmark"></i>
                     </button>  
 
                 </div>

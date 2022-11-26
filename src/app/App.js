@@ -25,7 +25,7 @@ function App() {
       <main>
       <Routes>
         <Route path="today" element={<Today />} />
-        <Route path="study" element={<Sport />} />
+        <Route path="study" element={<Study />} />
         <Route path="sport" element={<Sport />} />
         <Route path="house" element={<Household />} />
         <Route path="calendar" element={<Calendar />} />

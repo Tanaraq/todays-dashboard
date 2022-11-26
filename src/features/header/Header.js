@@ -14,7 +14,7 @@ export const Header = () => {
     let month = months[currentDate.getMonth()];
 
     return(
-        <div className="today segment">
+        <div className="currentday segment">
         <h1>{day} {cDay} {month} {cYear}</h1>
         <p> Today is : Menno's birthday</p>
         </div>
