@@ -75,5 +75,6 @@ h4,p {
 input,
 textarea {
   padding: 5px;
+  margin: 1em 1em 0 1em;
 }
 

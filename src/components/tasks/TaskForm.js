@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { addTask } from "./tasksSlice";
 
 export const TaskForm = () => {
-    //const [ newTask, setNewTask] = useState("");
     const [ title, setTitle] = useState("");
     const [ text, setText ] = useState("");
     const [ dueDate, setDueDate ] = useState("");
@@ -14,11 +13,10 @@ export const TaskForm = () => {
         e.preventDefault();
         const newTask= { title:title , text:text || "", dueDate:dueDate || "", isDone: false, doToday:true};
         console.log(newTask);
-        //if (newTask.title === "") {
-        //return;
-        //}
+        if (newTask.title === "") {
+            return;
+        }
         dispatch(addTask(newTask));
-        //setNewTask("");
         setTitle('');
         setText(''); 
         setDueDate('');

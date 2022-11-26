@@ -6,7 +6,7 @@ export const TaskList =({tasks}) =>{
         <ul className="task-list">
             {tasks.map((task, index) => (
                 <li
-                    key={index}
+                    key={task.title}
                     className={`${task.isDone ? "task-done" : ""}`}
                 >
                     <Task 

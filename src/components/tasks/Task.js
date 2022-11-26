@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { removeTask, toggleDoToday, toggleTaskDone } from "./tasksSlice";
+import Confetti from "react-dom-confetti"; 
 
-export const Task = ({task,id}) => {
-    // to fold out the task (accordion-menu)
-    const [ isActive, setIsActive] = useState(false);   
+export const Task = ({task,id}) => {    
+    const [ isActive, setIsActive] = useState(false);   // to fold out the task (accordion-menu)
     const dispatch = useDispatch();
-    console.log(task);
+    //console.log(task);
 
     return (        
         <div className="task">
@@ -16,6 +16,7 @@ export const Task = ({task,id}) => {
                     
                     <button onClick={()=> dispatch(toggleTaskDone(id))} >
                         {task.isDone ? "Redo" : "Done"}
+                        <Confetti active={task.isDone} config={{ spread: 360 }} />
                     </button>  
                     
                     <button onClick={()=> dispatch(toggleDoToday(id))}>
@@ -42,28 +43,6 @@ export const Task = ({task,id}) => {
         </div>
     )
 }
-
-/* uit oude dashboard:
-<div  className="task-title">
-                <h4>{task.title}</h4>
-                <div className="buttons">
-                    { addTaskToToday ? <button onClick={()=> addTaskToToday(task.title, task.text, task.dueDate, task.id)} className="left-arrow">
-                        &#10146;</button> : null}
-                    { removeTaskFromToday? <button onClick={()=> removeTaskFromToday(task)} className='right-arrow'>
-                         
-                        &#10146;
-                        </button> : null }                           
-                    { deleteTask? <button onClick={() => deleteTask(task.id)}>&#10008;</button> : null} 
-                </div>
-            </div>
-            {task.text && (
-            <p>{task.text}</p>
-            )}
-            {task.dueDate && (
-            <h6>{task.dueDate}</h6>
-            )}
-
-*/
 
 /* om te spieken:
 import React from "react";
