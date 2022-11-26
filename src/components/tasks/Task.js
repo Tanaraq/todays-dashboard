@@ -8,10 +8,26 @@ export const Task = ({task}) => {
     const dispatch = useDispatch();
     //console.log(task);
 
+    const getIcon=(category) => {
+      switch(category){
+        case "study":
+          return <i className="fas fa-laptop-code"></i>;
+          break;
+        case "sport":
+          return <i className="fa-solid fa-dumbbell"></i>;
+          break;
+        case "house":
+          return <i className='fas fa-home'></i>;
+          break;
+        default:
+          return null;
+      }
+    }
+
     return (        
         <div className="task">
             <div  className="task-title" >
-                <h4 onClick={() => setIsActive(!isActive)}>{task.title}</h4>
+                <h4 onClick={() => setIsActive(!isActive)}>{getIcon(task.category)} {task.title}</h4>
                 <div className="buttons">
                     
                     <button onClick={()=> dispatch(toggleTaskDone(task.id))} >
