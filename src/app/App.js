@@ -1,7 +1,8 @@
 import React from 'react';
 import { Header } from '../features/header/Header';
 import { Weather } from '../features/weather/Weather';
-import { Navbar } from '../components/navbar/Navbar'
+import { Navbar } from '../components/navbar/Navbar';
+import { Today } from '../components/today/Today';
 
 import './App.css';
 
@@ -13,11 +14,10 @@ function App() {
           <Header />
           <Weather />
         </div>    
-        <Navbar />  
-        
+        <Navbar />          
       </header>  
       <main>
-        
+        <Today/>
       </main>      
     </div>
   );
