@@ -7,6 +7,7 @@ export const Weather = () => {
     const dispatch = useDispatch();
     const weather = useSelector(selectWeather);
     const [isActive, setIsActive] = useState(false); // to fold out the weatherprediction (accordion-menu)
+    //console.log(weather);
    
     useEffect(() => {  
         dispatch(getWeather());
