@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import '../tasks/tasks.css';
 import { selectTasks } from "../tasks/tasksSlice";
 import { TaskList } from "../tasks/TaskList";
-
 import { TaskForm } from "../tasks/TaskForm";
 
 export const Today = () => {
@@ -15,7 +14,7 @@ export const Today = () => {
       return (
       <div className='container segment'>
 
-        <TaskForm />
+        <TaskForm currentCategory=""/>
         <TaskList tasks={tasks} />        
       
       </div>

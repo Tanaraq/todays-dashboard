@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { removeTask, toggleDoToday, toggleTaskDone } from "./tasksSlice";
 import Confetti from "react-dom-confetti"; 
 
-export const Task = ({task,id}) => {    
+export const Task = ({task}) => {    
     const [ isActive, setIsActive] = useState(false);   // to fold out the task (accordion-menu)
     const dispatch = useDispatch();
     //console.log(task);
@@ -14,17 +14,17 @@ export const Task = ({task,id}) => {
                 <h4 onClick={() => setIsActive(!isActive)}>{task.title}</h4>
                 <div className="buttons">
                     
-                    <button onClick={()=> dispatch(toggleTaskDone(id))} >
-                        {task.isDone ? "Redo" : <i class="fa-solid fa-check"></i>}
+                    <button onClick={()=> dispatch(toggleTaskDone(task.id))} >
+                        {task.isDone ? "Redo" : <i className="fa-solid fa-check"></i>}
                         <Confetti active={task.isDone} config={{ spread: 360 }} />
                     </button>  
                     
-                    <button onClick={()=> dispatch(toggleDoToday(id))}>
-                      <i class="fa-regular fa-heart"></i>
+                    <button onClick={()=> dispatch(toggleDoToday(task.id))}>
+                      <i className="fa-regular fa-heart"></i>
                     </button>
 
-                    <button onClick={()=> dispatch(removeTask(id))} >
-                      <i class="fa-solid fa-xmark"></i>
+                    <button onClick={()=> dispatch(removeTask(task.id))} >
+                      <i className="fa-solid fa-xmark"></i>
                     </button>  
 
                 </div>

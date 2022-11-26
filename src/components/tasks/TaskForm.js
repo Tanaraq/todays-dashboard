@@ -2,16 +2,17 @@ import React, {useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addTask } from "./tasksSlice";
 
-export const TaskForm = () => {
+export const TaskForm = ({currentCategory}) => {
     const [ title, setTitle] = useState("");
     const [ text, setText ] = useState("");
-    const [ dueDate, setDueDate ] = useState("");
+    const [ category, setCategory ] = useState(currentCategory);
+    console.log(category,currentCategory);
   
     const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const newTask= { title:title , text:text || "", dueDate:dueDate || "", isDone: false, doToday:true};
+        const newTask= {id: Date.now(), title:title , text:text || "", category:category, isDone: false, doToday:true};
         console.log(newTask);
         if (newTask.title === "") {
             return;
@@ -19,7 +20,7 @@ export const TaskForm = () => {
         dispatch(addTask(newTask));
         setTitle('');
         setText(''); 
-        setDueDate('');
+        setCategory('');
     };
 
     return (
@@ -43,11 +44,11 @@ export const TaskForm = () => {
                 placeholder = "new task (optional)"                  
                 />          
             <input 
-                name="dueDate" 
+                name="category" 
                 type="text" 
-                value={dueDate} 
-                onChange = {((e) => setDueDate(e.target.value))}
-                placeholder = "deadline (optional)"
+                value={category} 
+                onChange = {((e) => setCategory(e.target.value))}
+                placeholder = {category}
                 /> 
             <input type='submit' value='voeg toe'/>
             </>

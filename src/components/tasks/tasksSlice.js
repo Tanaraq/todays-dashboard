@@ -4,9 +4,11 @@ export const tasksSlice = createSlice({
     name:'tasks',
     initialState: {
         tasks: [
-            {title:"Afwassen", isDone: false, doToday: true},
-            {title:"Was ophangen", isDone: false, doToday: true},
-            {title:"Canna's", text:"uit de tuin naar binnen halen", isDone: false, doToday: true}
+            {id:0, title:"Afwassen", category:"house", isDone: false, doToday: true},
+            {id:1, title:"Was ophangen", category:"house", isDone: false, doToday: true},
+            {id:2, title:"Codecademy", category:"study", isDone: false, doToday: true},
+            {id:3, title:"Yoga", category:"sport", isDone: false, doToday: true},
+            {id:4, title:"Canna's", text:"uit de tuin naar binnen halen", category:"house", isDone: false, doToday: true}
         ],
         tasksDone: []
     },
@@ -15,7 +17,8 @@ export const tasksSlice = createSlice({
             state.tasks.push(action.payload);
         },
         removeTask: (state,action) =>{
-            state.tasks.splice(action.payload, 1);
+            console.log(action.payload);
+            state.tasks.splice(action.payload, 1);//doesnt work: it assumes the id is the same as the index
         },
         toggleTaskDone: (state,action) =>{
             state.tasks[action.payload].isDone = !state.tasks[action.payload].isDone;   
