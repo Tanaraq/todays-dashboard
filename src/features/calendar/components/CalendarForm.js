@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addDay } from "../../features/calendar/calendarSlice";
+import { addDay } from "../calendarSlice";
 
 export const CalendarForm =() =>{
     const dispatch = useDispatch();

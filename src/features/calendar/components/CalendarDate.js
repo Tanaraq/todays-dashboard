@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { removeDay } from "../../features/calendar/calendarSlice";
+import { removeDay } from "../calendarSlice";
 
 export const CalendarDate = ({day}) => {
     const dispatch = useDispatch();

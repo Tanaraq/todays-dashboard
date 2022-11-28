@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { CalendarForm } from '../../components/calendar/CalendarForm';
-import { CalendarDate } from '../../components/calendar/CalendarDate';
+import { CalendarForm } from './components/CalendarForm';
+import { CalendarDate } from './components/CalendarDate';
 import { selectDays } from "./calendarSlice";
 
 

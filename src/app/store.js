@@ -1,16 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
 import weatherReducer from '../features/weather/weatherSlice';
 import tasksReducer from '../components/tasks/tasksSlice';
 import navbarReducer from '../components/navbar/navbarSlice';
 import calendarReducer from '../features/calendar/calendarSlice';
+import quotesReducer from '../features/quotes/quotesSlice';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
     weather: weatherReducer,
     tasks: tasksReducer,
     navbar: navbarReducer,
-    calendar: calendarReducer
+    calendar: calendarReducer,
+    quote: quotesReducer
   },
 });
