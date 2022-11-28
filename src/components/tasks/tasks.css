@@ -13,8 +13,7 @@
     background-color: aquamarine;
 }
 
-input,
-textarea {
+input, textarea, select, option {
   padding: 5px;
   margin: 1em 1em 0 1em;
 }
