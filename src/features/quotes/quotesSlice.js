@@ -4,7 +4,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 export const getQuote = createAsyncThunk(
     'quote/getQuote',
     async() => {    
-      const data = await fetch("https://quotes.rest/qod?category=inspire");
+      const data = await fetch("https://quotes.rest/qod?category=life");
       const json = await data.json();
       console.log(json);
       return json;
