@@ -65,6 +65,7 @@ ul {
   height: 100%;
   padding: 1em;
   text-align: left;
+  cursor: pointer;
 }
 
 .weather p, .weather h3 { 

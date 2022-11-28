@@ -14,7 +14,7 @@ export const Today = () => {
       return (
       <div className='container segment'>
 
-        <TaskForm currentCategory=""/>
+        <TaskForm currentCategory="today"/>
         <TaskList tasks={tasks} />        
       
       </div>

@@ -19,7 +19,7 @@ export const Weather = () => {
             <h3>{weather.location}</h3> 
             <div className= "row">
                 <div className="column">                    
-                    <img src={weather.img} alt="weather-icon" width="70" height="60"></img>
+                    <img src={weather.img} alt="weather-icon" width="70" height="70"></img>
                 </div>
                 <div>
                     <p>temp.: {weather.temp}℃ </p>

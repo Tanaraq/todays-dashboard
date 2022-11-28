@@ -12,8 +12,9 @@ export const TaskForm = ({currentCategory}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const newTask= {id: Date.now(), title:title , text:text || "", category:category, isDone: false, doToday: false};
-        //console.log(newTask);
+        let doToday = currentCategory === "today" ? true : false
+        const newTask= {id: Date.now(), title:title , text:text || "", category:category, isDone: false, doToday: doToday};
+        console.log(newTask);
         if (newTask.title === "") {
             return;
         }
