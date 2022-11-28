@@ -36,7 +36,7 @@ export const Task = ({task}) => {
                     </button>  
                     
                     <button onClick={()=> dispatch(toggleDoToday(task.id))}>
-                      <i className="fa-regular fa-heart"></i>
+                      {task.doToday ? <i className="fa-solid fa-heart"></i> : <i className="fa-regular fa-heart"></i>}
                     </button>
 
                     <button onClick={()=> dispatch(removeTask(task.id))} >
