@@ -6,14 +6,14 @@ export const TaskForm = ({currentCategory}) => {
     const [ title, setTitle] = useState("");
     const [ text, setText ] = useState("");
     const [ category, setCategory ] = useState(currentCategory);
-    console.log(category,currentCategory);
+    //console.log(category,currentCategory);
   
     const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const newTask= {id: Date.now(), title:title , text:text || "", category:category, isDone: false, doToday:true};
-        console.log(newTask);
+        const newTask= {id: Date.now(), title:title , text:text || "", category:category, isDone: false, doToday: false};
+        //console.log(newTask);
         if (newTask.title === "") {
             return;
         }

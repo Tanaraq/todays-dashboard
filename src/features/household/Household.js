@@ -8,7 +8,7 @@ import { TaskForm } from "../../components/tasks/TaskForm";
 
 export const Household = () => {
   const allTasks = useSelector(selectTasks);
-  console.log(allTasks);
+  //console.log(allTasks);
   const tasks = allTasks.filter(task => task.category === "house");
 
       return (
