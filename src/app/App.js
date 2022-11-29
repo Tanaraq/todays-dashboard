@@ -7,6 +7,7 @@ import { Today } from '../components/today/Today';
 import { Study } from '../features/study/Study';
 import { Sport } from '../features/sport/Sport';
 import { Household } from '../features/household/Household';
+import { Hobby } from '../features/hobby/Hobby';
 import { Calendar } from '../features/calendar/Calendar';
 import { Quote } from '../features/quotes/Quote';
 
@@ -29,6 +30,7 @@ function App() {
         <Route path="study" element={<Study />} />
         <Route path="sport" element={<Sport />} />
         <Route path="house" element={<Household />} />
+        <Route path="hobby" element={<Hobby />} />
         <Route path="calendar" element={<Calendar />} />
         <Route path="" element={<Today />} />
       </Routes>

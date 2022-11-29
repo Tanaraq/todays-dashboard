@@ -54,6 +54,7 @@ export const TaskForm = ({currentCategory}) => {
                 <option value="study">studie</option>
                 <option value="sport">sport</option>
                 <option value="house">huis & tuin</option>
+                <option value="hobby">hobby</option>
             </select>    
 
             { /*UNDER CONSTRUCTION : RECURRING TASKS:*/}

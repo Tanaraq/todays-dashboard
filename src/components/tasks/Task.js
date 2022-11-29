@@ -20,6 +20,9 @@ export const Task = ({task}) => {
         case "house":
           return <i className='fas fa-home'></i>;
           break;
+        case "hobby":
+            return <i className="fas fa-edit"></i>
+            break;
         default:
           return null;
       }
@@ -35,6 +38,9 @@ export const Task = ({task}) => {
           break;
         case "house":
           return "#e2cb67";
+          break;
+        case "hobby":
+          return "#98B5A3";
           break;
         default:
           return "grey";
