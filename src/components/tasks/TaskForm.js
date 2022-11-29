@@ -7,18 +7,41 @@ export const TaskForm = ({currentCategory}) => {
     const [ text, setText ] = useState("");
     const [ category, setCategory ] = useState(currentCategory);
     //console.log(category,currentCategory);
-    const [ recurring, setRecurring ] = useState("not-recurring");
-    const [ recCounter, setRecCounter ] = useState(1);
+    //const [ recurring, setRecurring ] = useState("not-recurring");
+    //const [ recCounter, setRecCounter ] = useState(1);
     const [ recInterval ,setRecInterval ] = useState("week");
-    const [ weekday, setWeekday ] = useState ()
+    //const [ weekday, setWeekday ] = useState ()
     //console.log(category,currentCategory);
   
     const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        let doToday = currentCategory === "today" ? true : false
-        const newTask= {id: Date.now(), title:title , text:text || "", category:category, isDone: false, doToday: doToday};
+        
+        let doToday = currentCategory === "today" ? true : false;
+
+        const monday = document.getElementById("check_mo"); 
+        const tuesday = document.getElementById("check_tu");
+        const wednesday = document.getElementById("check_we");
+        const thursday = document.getElementById("check_th");
+        const friday = document.getElementById("check_fr");
+        const saturday = document.getElementById("check_sa");
+        const sunday = document.getElementById("check_su");
+        const weekdays = [sunday.checked, monday.checked, tuesday.checked, wednesday.checked, thursday.checked, friday.checked, saturday.checked]; //weekdays is always an array with 7 boolean values, corresponding with the .getDay() method
+
+        const newTask= {
+            id: Date.now(), 
+            title:title , 
+            text:text || "", 
+            category:category, 
+            isDone: false, 
+            doToday: doToday,
+            recurrence: {
+                recInterval: recInterval,
+                weekdays: weekdays
+            }
+        };
+
         console.log(newTask);
         if (newTask.title === "") {
             return;
@@ -73,32 +96,32 @@ export const TaskForm = ({currentCategory}) => {
             
             <ul>
                 <li>
-                    <input type="checkbox" id="check_ma" name="check_ma" value="check_ma"/>
-                    <label for="check_ma">Ma</label>
+                    <input type="checkbox" id="check_mo" name="check_mo" value="check_mo"/>
+                    <label htmlFor="check_mo">Ma</label>
                 </li>
                 <li>
-                    <input type="checkbox" id="check_di" name="check_di" value="check_di"/>
-                    <label for="check_di">Di</label>
+                    <input type="checkbox" id="check_tu" name="check_tu" value="check_tu"/>
+                    <label htmlFor="check_tu">Di</label>
                 </li>
                 <li>
-                    <input type="checkbox" id="check_wo" name="check_wo" value="check_wo"/>
-                    <label for="check_wo">Wo</label>
+                    <input type="checkbox" id="check_we" name="check_we" value="check_we"/>
+                    <label htmlFor="check_we">Wo</label>
                 </li>
                 <li>
-                    <input type="checkbox" id="check_do" name="check_do" value="check_do"/>
-                    <label for="check_do">Do</label>
+                    <input type="checkbox" id="check_th" name="check_th" value="check_th"/>
+                    <label htmlFor="check_th">Do</label>
                 </li>
                 <li>
-                    <input type="checkbox" id="check_vr" name="check_vr" value="check_vr"/>
-                    <label for="check_vr">Vr</label>
+                    <input type="checkbox" id="check_fr" name="check_fr" value="check_fr"/>
+                    <label htmlFor="check_fr">Vr</label>
                 </li>
                 <li>
-                    <input type="checkbox" id="check_za" name="check_za" value="check_za"/>
-                    <label for="check_za">Za</label>
+                    <input type="checkbox" id="check_sa" name="check_sa" value="check_sa"/>
+                    <label htmlFor="check_sa">Za</label>
                 </li>
                 <li>
-                    <input type="checkbox" id="check_zo" name="check_zo" value="check_zo"/>
-                    <label for="check_zo">Zo</label>
+                    <input type="checkbox" id="check_su" name="check_su" value="check_su"/>
+                    <label htmlFor="check_su">Zo</label>
                 </li>
             </ul>  
                        

@@ -5,7 +5,7 @@ import { selectQuote, getQuote } from "./quotesSlice";
 export const Quote = () => {
     const dispatch = useDispatch();
     const newQuote = useSelector(selectQuote);
-    console.log(newQuote);
+    //console.log(newQuote);
 
     useEffect(() => {  
         dispatch(getQuote());
