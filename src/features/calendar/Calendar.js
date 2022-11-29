@@ -10,9 +10,9 @@ export const Calendar = () => {
     //console.log(specialDays); // array with objects
 
     return (
-        <div className='container segment'>
+        <div className='calendar container'>
             <CalendarForm />
-            <div className="calendar">
+            <div className="calendarEntry">
             {specialDays.map((day,index) => {
                 return (
                     <CalendarDate key={index} day={day}/>

@@ -6,6 +6,7 @@ import Confetti from "react-dom-confetti";
 export const Task = ({task}) => {    
     const [ isActive, setIsActive] = useState(false);   // to fold out the task (accordion-menu)
     const dispatch = useDispatch();
+    const {id,title,text, category, isDone, doToday} = task;
     //console.log(task);
 
     const getIcon=(category) => {
@@ -24,22 +25,38 @@ export const Task = ({task}) => {
       }
     }
 
+    const getColor=(category) =>{
+      switch(category){
+        case "study":
+          return "#1A5E76"
+          break;
+        case "sport":
+          return "#937D41";
+          break;
+        case "house":
+          return "#e2cb67";
+          break;
+        default:
+          return "grey";
+      }
+    }
+
     return (        
-        <div className="task">
+        <div className="task" style={{backgroundColor:(getColor(category))}}>
             <div  className="task-title" >
-                <h4 onClick={() => setIsActive(!isActive)}>{getIcon(task.category)} {task.title}</h4>
+                <h4 onClick={() => setIsActive(!isActive)}>{getIcon(category)} {title}</h4>
                 <div className="buttons">
                     
-                    <button onClick={()=> dispatch(toggleTaskDone(task.id))} >
-                        {task.isDone ? "Redo" : <i className="fa-solid fa-check"></i>}
-                        <Confetti active={task.isDone} config={{ spread: 360 }} />
+                    <button onClick={()=> dispatch(toggleTaskDone(id))} >
+                        {isDone ? "Redo" : <i className="fa-solid fa-check"></i>}
+                        <Confetti active={isDone} config={{ spread: 360 }} />
                     </button>  
                     
-                    <button onClick={()=> dispatch(toggleDoToday(task.id))}>
-                      {task.doToday ? <i className="fa-solid fa-heart"></i> : <i className="fa-regular fa-heart"></i>}
+                    <button onClick={()=> dispatch(toggleDoToday(id))}>
+                      {doToday ? <i className="fa-solid fa-heart"></i> : <i className="fa-regular fa-heart"></i>}
                     </button>
 
-                    <button onClick={()=> dispatch(removeTask(task.id))} >
+                    <button onClick={()=> dispatch(removeTask(id))} >
                       <i className="fa-solid fa-xmark"></i>
                     </button>  
 
@@ -47,8 +64,8 @@ export const Task = ({task}) => {
             </div>
             {isActive && 
                 <div className="project-foldout">
-                    {task.text && (
-                    <p>{task.text}</p>
+                    {text && (
+                    <p>{text}</p>
                     )}
                     {task.dueDate && (
                     <h6>{task.dueDate}</h6>
@@ -60,40 +77,3 @@ export const Task = ({task}) => {
     )
 }
 
-/* om te spieken:
-import React from "react";
-import { useDispatch } from "react-redux";
-import { removeEntry, toggleEntryDone } from "../journalSlice";
-import Confetti from "react-dom-confetti";
-
-const JournalEntry = ({ children, id, isDone }) => {
-  const dispatch = useDispatch();
-
-  return (
-    <div className={`entry`}>
-      <div className="entry-actions-container">
-        <button
-          aria-label="Remove"
-          className="remove"
-          onClick={() => dispatch(removeEntry(id))}
-        >
-          Remove
-        </button>
-        <button
-          aria-label="Mark Done"
-          className="done"
-          onClick={() => {
-            dispatch(toggleEntryDone(id));
-          }}
-        >
-          {isDone ? "Redo" : "Done"}
-          <Confetti active={isDone} config={{ spread: 360 }} />
-        </button>
-      </div>
-      {children}
-    </div>
-  );
-};
-
-export default JournalEntry;
-*/

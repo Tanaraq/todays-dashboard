@@ -12,7 +12,7 @@ export const Sport = () => {
   const tasks = allTasks.filter(task => task.category === "sport");
 
       return (
-      <div className='container segment'>
+      <div className='sport container'>
 
         <TaskForm currentCategory="sport"/>
         <TaskList tasks={tasks} />        

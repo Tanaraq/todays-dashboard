@@ -30,10 +30,11 @@ function App() {
         <Route path="sport" element={<Sport />} />
         <Route path="house" element={<Household />} />
         <Route path="calendar" element={<Calendar />} />
+        <Route path="" element={<Today />} />
       </Routes>
       <Quote/>
       </main>      
-    </div>
+    
     <footer>
       <p>copyrigth @ A.Kooistra, 2022</p>
       <span >
@@ -43,6 +44,7 @@ function App() {
       </a>
       </span>
     </footer>
+    </div>
     </Router>
   );
 }

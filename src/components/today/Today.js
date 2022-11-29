@@ -12,7 +12,7 @@ export const Today = () => {
   const tasks = allTasks.filter(task => task.doToday === true);
 
       return (
-      <div className='container segment'>
+      <div className='today container'>
 
         <TaskForm currentCategory="today"/>
         <TaskList tasks={tasks} />        

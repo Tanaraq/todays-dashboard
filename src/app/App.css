@@ -18,9 +18,10 @@ ul {
 .segment {
   background-color: white;
   opacity: 0.7;
-  border-radius: 1em ;
-  margin: 1em 0;
+  border-radius: 1em;
+  margin-bottom: 1em;
 }
+
 .column{
   display: flex;
   flex-direction: column;
@@ -37,53 +38,36 @@ ul {
   border: 1px solid red;
 }
 
-.header {
-  width: 100%;
-  height: 20vh;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.currentday {
-  width: 100%;  
-  height: 100%;
-  margin-right: 3%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.container {
+.main {
   height: 50vh;
 }
-
-.weather {
-  width: 300px;
-  height: 100%;
-  padding: 1em;
-  text-align: left;
-  cursor: pointer;
+ 
+.container {
+  height: 50vh;  
+  background-color: rgb(255, 255, 255, 0.7);  
+  border: 5px solid grey;
+  border-radius: 0 0 1em 1em ;
+  margin-bottom: 1em;
 }
 
-.weather p, .weather h3 { 
-  margin: 0;
-  font-size: 12px;
+.today {
+  border: 0.5em solid #6295A9;
 }
-
-.navbar {
-  height: 6vh;  
-  justify-content: space-around;
+.study {
+  border: 0.5em solid #1A5E76;
+}
+.sport {
+  border: 0.5em solid #937D41;
+}
+.house {
+  border: 0.5em solid #e2cb67;
+}
+.calendar {
+  border: 0.5em solid #98B5A3;
 }
 
 ul{
   padding-inline-start: 0;
-}
-
-.main {
-  height: 50vh;
 }
 
 .App-link {
@@ -93,8 +77,11 @@ ul{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  
+  align-items: center;  
   padding: 0.4em 3em;
   text-align: center;
+}
+
+footer, footer a {
+  color: whitesmoke;
 }

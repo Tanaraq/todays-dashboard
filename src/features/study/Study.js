@@ -11,7 +11,7 @@ export const Study = () => {
   const tasks = allTasks.filter(task => task.category === "study");
 
       return (
-      <div className='container segment'>
+      <div className='study container'>
 
         <TaskForm currentCategory="study" />
         <TaskList tasks={tasks} />        

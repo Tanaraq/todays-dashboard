@@ -1,6 +1,6 @@
 /* TASK-FORM */
 .task-form {
-    width: 250px;
+    width: 270px;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -18,10 +18,45 @@ input, textarea, select, option {
   margin: 1em 1em 0 1em;
 }
 
+ul {
+    padding: 0;
+    margin: 0;
+    clear: both;
+  }
+  
+  li{
+    list-style-type: none;
+    list-style-position: outside;
+    padding: 2px;
+    float: left;
+  }
+  
+  input[type="checkbox"]:not(:checked), 
+  input[type="checkbox"]:checked {
+    position: absolute;
+    left: -9999%;
+  }
+  
+  input[type="checkbox"] + label {
+    display: inline-block;
+    padding: 5px;
+    cursor: pointer;
+    border: 1px solid black;
+    color: black;
+    background-color: white;
+    margin-bottom: 5px;
+    border-radius: 50%;
+  }
+  
+  input[type="checkbox"]:checked + label {
+    border: 1px solid white;
+    color: white;
+    background-color: black;
+  }
+
 /*  TASK-LIST  */
 .tasklist-title{
     width: 100%;
-    color: white; 
     text-align: center;
     padding: 0.3em;      
     border-radius: 4px; 
@@ -40,11 +75,12 @@ h4,p {
 /* TASK */
 .task {
     width: 250px;
-    border: 1px solid grey; 
-    color: #213a4a;
-    background-color: white; 
+    color: white; 
+    text-shadow: 1px 1px 4px #2e2744;
     margin: 0.2em 0;  
-    border-radius: 0.2em;
+    border: 1px solid grey; 
+    border-radius: 0.3em;
+    box-shadow: 0 8px 12px 0 rgba(29, 31, 67, 0.37) ;
 }
 
 .task-done {
@@ -54,9 +90,8 @@ h4,p {
   }
 
 .task-title {
-    padding: 0.3em;    
+    padding: 0.5em;    
     position: relative;
-    background-color: #accce0;
     display: flex;
 }
 
@@ -77,6 +112,8 @@ h4,p {
 .buttons button {
     border: none;
     outline: none;
+    color: white;
+    text-shadow: 1px 1px 4px #2e2744;
     background-color: transparent;
     cursor: pointer;  
 }

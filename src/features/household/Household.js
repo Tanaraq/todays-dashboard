@@ -12,7 +12,7 @@ export const Household = () => {
   const tasks = allTasks.filter(task => task.category === "house");
 
       return (
-      <div className='container segment'>
+      <div className='house container'>
 
         <TaskForm currentCategory="house"/>
         <TaskList tasks={tasks} />        
