@@ -21,7 +21,17 @@ style="color: #6295A9"; today
     margin-right: 3%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#calendar-div {
+    display: flex;
+    justify-content: space-around;
+}
+#calendar-icon {
+    margin-right: 1em;
+    color: black;
 }
 .weather {
     width: 300px;

@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 
 export const Header = () => {
@@ -16,7 +17,10 @@ export const Header = () => {
     return(
         <div className="currentday segment">
         <h1>{day} {cDay} {month} {cYear}</h1>
-        <p> Today is : Menno's birthday</p>
+        <div id='calendar-div'>
+            <NavLink to="/calendar" id="calendar-icon"><i className="far fa-calendar-alt"></i></NavLink>   
+            <p>Today is : Menno's birthday</p>
+        </div>
         </div>
     )
 }
