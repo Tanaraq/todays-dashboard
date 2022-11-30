@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector,useDispatch } from "react-redux";
-import '../tasks/tasks.css';
-import { selectAllTasks, selectTodayTasks,setDoTodayIsFalse,setDoTodayIsTrue } from "../tasks/tasksSlice";
-import { TaskList } from "../tasks/TaskList";
-import { TaskForm } from "../tasks/TaskForm";
+import '../../components/tasks/tasks.css';
+import { selectAllTasks, selectTodayTasks,setDoTodayIsFalse,setDoTodayIsTrue } from "../../components/tasks/tasksSlice";
+import { TaskList } from "../../components/tasks/TaskList";
+import { TaskForm } from "../../components/tasks/TaskForm";
 
 export const Today = () => {
   const dispatch = useDispatch();

@@ -1,16 +1,13 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-//voorbeeld APIcall WeerLive = knmi:
+//exaple APIcall WeerLive (= knmi):
 //http://weerlive.nl/api/json-data-10min.php?key=64d855e6ee&locatie=Amsterdam 
-//const APIkey = 64d855e6ee 
-//max 300calls per dag
 
 export const getWeather = createAsyncThunk(
   'weather/getWeather',
   async() => {    
-    const APIkey = "64d855e6ee";
     const locatie = "Breda";
-    const data = await fetch(`http://weerlive.nl/api/json-data-10min.php?key=${APIkey}&locatie=${locatie}`);
+    const data = await fetch(`http://weerlive.nl/api/json-data-10min.php?key=64d855e6ee&locatie=${locatie}`);
     const json = await data.json();
     console.log(json);
     return json;

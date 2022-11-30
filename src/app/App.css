@@ -5,7 +5,7 @@
 
 .App {
   min-height: 100vh;  
-  background-image: url('../features/themes/background-images/mYv2Ir.jpg');
+  background-image: url('../../public/background-images/misty-mountains.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -73,9 +73,6 @@ ul{
   padding-inline-start: 0;
 }
 
-.App-link {
-  color: rgb(112, 76, 182);
-}
 .quote{
   display: flex;
   flex-direction: column;
@@ -85,6 +82,9 @@ ul{
   text-align: center;
 }
 
-footer, footer a {
+footer, footer span, footer a {
   color: whitesmoke;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-around;
 }
