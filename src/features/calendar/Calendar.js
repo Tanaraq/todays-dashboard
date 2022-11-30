@@ -7,15 +7,10 @@ import { selectDays } from "./calendarSlice";
 
 export const Calendar = () => {
     const specialDays= useSelector(selectDays);
-    const [isActive, setIsActive ] = useState(false);
-    //console.log(specialDays); // array with objects
 
     return (
         <div className='calendar container'>
-            <button onClick={() => setIsActive(!isActive)}>+</button>
-            {isActive && 
-                <CalendarForm setIsActive={setIsActive} />
-            }
+            <CalendarForm />
             
             <div className="calendarEntries">
             {specialDays.map((day,index) => {

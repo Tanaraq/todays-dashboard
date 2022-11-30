@@ -8,16 +8,15 @@ export const CalendarDate = ({day}) => {
     const dispatch = useDispatch();
     const [isActive, setIsActive ] = useState(false);
 
-    
     return (
         <div className="date">
             <div className="date-box">
                 <p className="date-title"> {day.text} , {day.date}</p>   
             
                 <div className="buttons">
-                    <button onClick={()=>{setIsActive(!isActive)}}>/</button>               
+                    <button onClick={()=>{setIsActive(!isActive)}}><i className="fa-solid fa-pen"></i></button>               
 
-                    <button onClick={()=> dispatch(removeDay(day))}>x</button>
+                    <button onClick={()=> dispatch(removeDay(day))}><i className="fa-solid fa-xmark"></i></button>
                 </div>
             </div>
             {isActive && <CalendarForm dayToEdit={day} setIsActive={setIsActive}/> }

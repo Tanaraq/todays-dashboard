@@ -2,14 +2,15 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addDay, editDay } from "../calendarSlice";
 
-export const CalendarForm =({setIsActive,dayToEdit}) =>{
+export const CalendarForm =({dayToEdit}) =>{
     const dispatch = useDispatch();
     const [ text, setText ] = useState( dayToEdit? dayToEdit.text : "" );
     const [ date, setDate ] = useState( dayToEdit? dayToEdit.date : "");
+    const [isActive, setIsActive ] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const newCalendarEntry = { id:(dayToEdit? dayToEdit.id : Date.now()),text:text, date:date};
+        const newCalendarEntry = { id:(dayToEdit? dayToEdit.id : Date.now()), text:text, date:date};
         //console.log(newCalendarEntry);
         if (newCalendarEntry.text === "") {
             return;
@@ -31,7 +32,7 @@ export const CalendarForm =({setIsActive,dayToEdit}) =>{
                 type="text" 
                 value={text} 
                 onChange = {((e) => setText(e.target.value))}
-                placeholder = "occasion"
+                placeholder = "naam / gebeurtenis "
                 required
                 />
             <input

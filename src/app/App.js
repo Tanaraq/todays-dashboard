@@ -41,7 +41,7 @@ function App() {
       <p>copyrigth @ A.Kooistra, 2022</p>
   
       <span >
-        <p>"Quotes via:</p>
+        <p>"Quotes via:&nbsp;</p>
         <img src="https://theysaidso.com/branding/theysaidso.png" height="20" width="20" alt="theysaidso.com"/>
         <a href="https://theysaidso.com" title="Powered by quotes from theysaidso.com">
         They Said So®"
@@ -49,7 +49,7 @@ function App() {
       </span>
 
       <span>
-       <p>"KNMI Weergegevens via:</p><a href='http://weerlive.nl'>Weerlive.nl"</a>
+       <p>"KNMI Weergegevens via:&nbsp;</p><a href='http://weerlive.nl'>Weerlive.nl"</a>
       </span>
       
     </footer>
