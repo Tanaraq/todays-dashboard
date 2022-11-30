@@ -48,6 +48,7 @@ ul {
   border: 5px solid grey;
   border-radius: 0 0 1em 1em ;
   margin-bottom: 1em;
+  padding: 0.5em;
 }
 
 .today {
