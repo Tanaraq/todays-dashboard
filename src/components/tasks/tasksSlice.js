@@ -35,7 +35,11 @@ export const tasksSlice = createSlice({
         setDoTodayIsTrue: (state,action) => {
           const index = state.tasks.findIndex((task) => task.id === action.payload);
           state.tasks[index].doToday = true;
-        }
+        },
+        setDoTodayIsFalse: (state,action) => {
+            const index = state.tasks.findIndex((task) => task.id === action.payload);
+            state.tasks[index].doToday = false;
+          }
     }
 });
 
@@ -46,28 +50,15 @@ export const selectTodayTasks = (state) =>{
     //find out what day it is today:
     let currentDate = new Date();    
     let today = currentDate.getDay(); //returns a number from 0 to 6, indicating su-mo-tu-we-th-fr-sa-su
-    //console.log(`today: ${today}`);
 
     //recurrence.weekdays is always an array with 7 boolean values, corresponding with the .getDay() method
     const tasks = state.tasks.tasks;
     let todayTasks = tasks.filter(task => task.recurrence.weekdays[today] === true);
-    console.log(`todayTasks: ${todayTasks}`); 
-    //this works: i have now an array that shows every task that recurs today.
-   
-    //now add the manually added tasks, the ones with doToday=true:
-    tasks.map((task) =>{
-        if(task.doToday===true){
-            //make sure it's not already there
-            if(todayTasks.includes(task)===false){
-            todayTasks.push(task);
-            }
-        }
-    }) ;
-
+    //console.log(`todayTasks: ${todayTasks}`); 
     return todayTasks;
-}  
+}    
 
 //EXPORTS
-export const { addTask, removeTask, toggleTaskDone, toggleDoToday } = tasksSlice.actions;
+export const { addTask, removeTask, toggleTaskDone, toggleDoToday, setDoTodayIsTrue, setDoTodayIsFalse } = tasksSlice.actions;
 export default tasksSlice.reducer;
 
