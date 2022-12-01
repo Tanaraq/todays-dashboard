@@ -27,7 +27,7 @@ export const Header = () => {
         //console.log(dayArray); // = { '1978','11','30'}
         //console.log(cMonth+1, cDay); // = { 11, 30 } subtle difference: equal, but not deep-equal
         if ( dayArray[1] == cMonth+1 && dayArray[2] == cDay){
-            birthdayPpl.push(day.text);
+            birthdayPpl.push(day);
         }
     });
        
@@ -37,8 +37,8 @@ export const Header = () => {
             <div id='calendar-div'>
                 <NavLink to="/calendar" id="calendar-icon"><i className="far fa-calendar-alt"></i></NavLink>   
                 { birthdayPpl.length === 0 ? <p>Today is a beautiful day.</p> : 
-                    birthdayPpl.map((name) => { 
-                        return <p>Vandaag is {name} jarig!&nbsp;&nbsp;</p>
+                    birthdayPpl.map((day) => { 
+                        return <p key={day.id}>Vandaag is {day.text} jarig!&nbsp;&nbsp;</p>
                     })                    
                 }
             </div>
