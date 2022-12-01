@@ -4,16 +4,24 @@ export const tasksSlice = createSlice({
     name:'tasks',
     initialState: {
         tasks: [
-            {id:1, title:"Was ophangen", category:"house", isDone: false, doToday: false, recurrence: {recInterval: "weekly",
-            weekdays: [false,false,false,false,false,true,false]}},
-            {id:2, title:"Codecademy", category:"study", isDone: false, doToday: false, recurrence: {recInterval: "weekly",
+            {id:1, title:"Studeren", category:"study", isDone: false, doToday: false, recurrence: {recInterval: "weekly",
             weekdays: [false,true,true,true,true,true,false]}},
+            {id:2, title:"DuoLingo", category:"study", isDone: false, doToday: false, recurrence: {recInterval: "weekly",
+            weekdays: [true,true,true,true,true,true,true]}},
             {id:3, title:"Yoga", category:"sport", isDone: false, doToday: false, recurrence: {recInterval: "weekly",
-                weekdays: [false,true,true,false,true,true,false]}},
-            {id:4, title:"Canna's", text:"uit de tuin naar binnen halen", category:"house", isDone: false, doToday: false, recurrence: {recInterval: "not-recurring",
-            weekdays: [false,false,false,false,false,false,false]}},
-            {id:5, title:"Bed verschonen", category:"house", isDone: false, doToday: false, recurrence: {recInterval: "monthly_2",
-            weekdays: [false,false,false,false,true,false,false]}}
+            weekdays: [false,true,true,false,true,true,false]}},
+            {id:4, title:"Hardlopen", category:"sport", isDone: false, doToday: false, recurrence: {recInterval: "weekly",
+            weekdays: [false,false,false,true,false,false,true]}},
+            {id:5, title:"Planten water geven", category:"house", isDone: false, doToday: false, recurrence: {recInterval: "weekly",
+            weekdays: [false,true,false,false,true,false,false]}},
+            {id:6, title:"Was-dag", category:"house", isDone: false, doToday: false, recurrence: {recInterval: "weekly",
+            weekdays: [false,false,false,false,false,true,false]}},
+            {id:7, title:"Bed verschonen", category:"house", isDone: false, doToday: false, recurrence: {recInterval: "monthly_2",
+            weekdays: [false,false,false,false,true,false,false]}},
+            {id:8, title:"Container aan straat", category:"house", isDone: false, doToday: false, recurrence: {recInterval: "monthly_1",
+            weekdays: [false,false,false,false,true,false,false]}},
+            {id:9, title:"call Mom", category:"hobby", isDone: false, doToday: false, recurrence: {recInterval: "monthly_2",
+            weekdays: [true,false,false,false,false,false,false]}}
         ],
     },
     reducers: {

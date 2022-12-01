@@ -3,7 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 export const calendarSlice = createSlice({
     name:'calendar',
     initialState: {
-        specialDays: [{ id:"1", text: "Menno", date:"1977-09-12"}]
+        specialDays: [
+            { id:"1", text: "Mom", date:"1955-07-19"}, 
+            { id:"2", text: "Dad", date:"1950-04-12"}]
     },
     reducers: {
         addDay: (state,action) => {
