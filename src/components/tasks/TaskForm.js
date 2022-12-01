@@ -50,7 +50,7 @@ export const TaskForm = ({currentCategory}) => {
         dispatch(addTask(newTask));
         setTitle('');
         setText(''); 
-        setCategory('');
+        setCategory("today");
     };
 
     return (
@@ -74,29 +74,27 @@ export const TaskForm = ({currentCategory}) => {
                 placeholder = "omschrijving (optioneel)"                  
                 />  
 
-            <select value={category} onChange = {((e) => setCategory(e.target.value))}>
+            <select value={category} required onChange = {((e) => setCategory(e.target.value))}  >
                 <option value="today" disabled hidden>Kies een categorie:</option>
                 <option value="study">studie</option>
                 <option value="sport">sport</option>
                 <option value="house">huis & tuin</option>
                 <option value="hobby">hobby</option>
-            </select>    
-
-            { /*UNDER CONSTRUCTION : RECURRING TASKS:*/}                          
+            </select>                         
                        
             <select value={recInterval} onChange = {((e) => setRecInterval(e.target.value))} >
                 <option value="not-recurring">Niet herhaald</option>
                 <option value="weekly">Elke week op:</option>
-                {/*}
                 <option value="monthly_1">Eens per maand op de eerste:</option> 
                 <option value="monthly_2">Eens per maand op de tweede:</option> 
                 <option value="monthly_3">Eens per maand op de derde:</option> 
                 <option value="monthly_4">Eens per maand op de vierde:</option>
-                <option value="twice_per_month">Twee keer per maand</option>    
+                {/*
+                <option value="twice-a-week">Twee keer per maand</option>    
             */}         
             </select>
             
-            { recInterval === "not-recurring" ? null :
+            { recInterval === "weekly" &&
             <ul>
                 <li>
                     <input type="checkbox" id="check_mo" name="check_mo" value="check_mo"/>
@@ -127,7 +125,41 @@ export const TaskForm = ({currentCategory}) => {
                     <label htmlFor="check_su">Z</label>
                 </li>
             </ul>  
-            }           
+            }   
+
+            { (recInterval === "monthly_1" || recInterval === "monthly_2"|| recInterval === "monthly_3" || recInterval === "monthly_4") &&
+            <ul>
+                <li>
+                    <input type="radio" id="check_mo" name="check_day" value="check_mo" className="form-check-input"/>
+                    <label htmlFor="check_mo">M</label>
+                </li>
+                <li>
+                    <input type="radio" id="check_tu" name="check_day" value="check_tu" className="form-check-input"/>
+                    <label htmlFor="check_tu">D</label>
+                </li>
+                <li>
+                    <input type="radio" id="check_we" name="check_day" value="check_we" className="form-check-input"/>
+                    <label htmlFor="check_we">W</label>
+                </li>
+                <li>
+                    <input type="radio" id="check_th" name="check_day" value="check_th" className="form-check-input"/>
+                    <label htmlFor="check_th">D</label>
+                </li>
+                <li>
+                    <input type="radio" id="check_fr" name="check_day" value="check_fr" className="form-check-input"/>
+                    <label htmlFor="check_fr">V</label>
+                </li>
+                <li>
+                    <input type="radio" id="check_sa" name="check_day" value="check_sa" className="form-check-input"/>
+                    <label htmlFor="check_sa">Z</label>
+                </li>
+                <li>
+                    <input type="radio" id="check_su" name="check_day" value="check_su" className="form-check-input"/>
+                    <label htmlFor="check_su">Z</label>
+                </li>
+            </ul>  
+            }  
+
             <input type='submit' value='voeg toe'/>
             </>
             )}

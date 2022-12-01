@@ -8,6 +8,29 @@ export const Task = ({task}) => {
     const dispatch = useDispatch();
     const {id,title,text, category, isDone, doToday, recurrence} = task;
     
+    // to rpint recInterval (in an ok format):
+    const getInterval = () => {
+      switch(recurrence.recInterval){
+        case "weekly":
+          return "Elke week op:";
+          break;
+        case "monthly_1":
+          return "Eens per maand op de eerste:";
+          break;
+        case "monthly_2":
+          return "Eens per maand op de tweede:";
+          break;
+        case "monthly_3":
+            return "Eens per maand op de derde:";
+            break;
+        case "monthly_4":
+          return "Eens per maand op de vierde:";
+          break;
+        default:
+          return null;
+      }
+    }
+
     //to print recurrence days:
     const getRecurrenceDays = () => {
       console.log(recurrence.recInterval, recurrence.weekdays);
@@ -66,6 +89,9 @@ export const Task = ({task}) => {
         case "hobby":
           return "#98B5A3";
           break;
+          case "today":
+            return "#6295A9"
+            break;
         default:
           return "grey";
       }
@@ -97,15 +123,14 @@ export const Task = ({task}) => {
                     {text && (
                     <p>{text}</p>
                     )}                   
-                    <h5>&nbsp; {recurrence.recInterval}</h5>                     
+                    <h5>&nbsp; {getInterval()}</h5>                     
                     { recurrence.recInterval === "not-recurring" ? null :
                     <ul style={{backgroundColor:(getColor(category)),height:38}}>
                       {getRecurrenceDays()}
                     </ul>  
                     }  
                 </div>
-            }
-                                
+            }                                
         </div>
     )
 }

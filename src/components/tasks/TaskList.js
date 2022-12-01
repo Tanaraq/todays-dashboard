@@ -12,7 +12,7 @@ export const TaskList =({tasks}) =>{
                     key={task.title}
                     className={`${task.isDone ? "task-done" : ""}`}
                 >
-                    <Task task={task}/>
+                    <Task task={task} />
                     
                 </li>
             ))}

@@ -10,6 +10,7 @@ export const Calendar = () => {
 
     return (
         <div className='calendar container'>
+            <h2>Verjaardags Kalender:</h2>
             <CalendarForm />
             
             <div className="calendarEntries">

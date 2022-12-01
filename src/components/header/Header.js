@@ -18,7 +18,7 @@ export const Header = () => {
     const months = ["Januari","Februari","Maart","April","Mei","Juni","Juli","Augustus","September","Oktober","November","December"];
     let month = months[cMonth];
 
-    // to compare the current date with the dates from the Calendar: BUT only month & day, else birthdays won't work :D
+    // to compare the current date with the dates from the Calendar (BUT only month & day, else birthdays won't work!):
     const specialDays = useSelector(selectDays); 
 
     let birthdayPpl = [];  // array, because multiple ppl can possibly share the same birthday!
