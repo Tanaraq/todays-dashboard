@@ -4,51 +4,45 @@ import { removeTask, toggleDoToday, toggleTaskDone } from "./tasksSlice";
 import Confetti from "react-dom-confetti"; 
 
 export const Task = ({task}) => {    
-    const [ isActive, setIsActive] = useState(false);   // to fold out the task (accordion-menu)
+    const [ isActive, setIsActive] = useState(false);   // to fold out the task (accordion-style)
     const dispatch = useDispatch();
     const {id,title,text, category, isDone, doToday, recurrence} = task;
     
-    // to rpint recInterval (in an ok format):
+    // to render recInterval in an userfriendly format):
     const getInterval = () => {
       switch(recurrence.recInterval){
         case "weekly":
           return "Elke week op:";
-          break;
         case "monthly_1":
           return "Eens per maand op de eerste:";
-          break;
         case "monthly_2":
           return "Eens per maand op de tweede:";
-          break;
         case "monthly_3":
             return "Eens per maand op de derde:";
-            break;
         case "monthly_4":
           return "Eens per maand op de vierde:";
-          break;
         default:
           return null;
       }
     }
 
-    //to print recurrence days:
+    //to render recurrence days:
     const getRecurrenceDays = () => {
-      console.log(recurrence.recInterval, recurrence.weekdays);
       const days = ["Zo","Ma","Di","Wo","Do","Vr","Za"];
-      let recList=[]
+      let recList=[];
       for (let i=0; i<recurrence.weekdays.length; i++){
         if (recurrence.weekdays[i] === true ){
           recList.push(
             <li key={i}>
-              <input type="checkbox" checked readOnly/>
-              <label>{days[i]}</label>
+              <input type="checkbox" checked readOnly />
+              <label style={{cursor: "default" }}>{days[i]}</label>
             </li>
           );
         } else {
           recList.push(
             <li key={i}>
               <input type="checkbox" readOnly/>
-              <label>{days[i]}</label>
+              <label style={{cursor: "default" }}>{days[i]}</label>
             </li>
           );
         }
@@ -60,16 +54,12 @@ export const Task = ({task}) => {
       switch(category){
         case "study":
           return <i className="fas fa-laptop-code"></i>;
-          break;
         case "sport":
           return <i className="fa-solid fa-dumbbell"></i>;
-          break;
         case "house":
           return <i className='fas fa-home'></i>;
-          break;
         case "hobby":
-            return <i className="fas fa-edit"></i>
-            break;
+            return <i className="fas fa-edit"></i>;
         default:
           return null;
       }
@@ -79,19 +69,14 @@ export const Task = ({task}) => {
       switch(category){
         case "study":
           return "#1A5E76"
-          break;
         case "sport":
           return "#937D41";
-          break;
         case "house":
           return "#e2cb67";
-          break;
         case "hobby":
           return "#98B5A3";
-          break;
-          case "today":
-            return "#6295A9"
-            break;
+        case "today":
+          return "#6295A9"
         default:
           return "grey";
       }
@@ -100,19 +85,19 @@ export const Task = ({task}) => {
     return (        
         <div className="task" style={{backgroundColor:(getColor(category))}}>
             <div  className="task-title" >
-                <h4 onClick={() => setIsActive(!isActive)}>{getIcon(category)} {title}</h4>
+                <h4 onClick={() => setIsActive(!isActive)} title="Klik voor meer details">{getIcon(category)} {title}</h4>
                 <div className="buttons">
                     
-                    <button onClick={()=> dispatch(toggleTaskDone(id))} >
+                    <button onClick={()=> dispatch(toggleTaskDone(id))} title="Klik om de taak af te vinken" >
                         {isDone ? "Redo" : <i className="fa-solid fa-check"></i>}
                         <Confetti active={isDone} config={{ spread: 360 }} />
                     </button>  
                     
-                    <button onClick={()=> dispatch(toggleDoToday(id))}>
+                    <button onClick={()=> dispatch(toggleDoToday(id))} title='Klik om de taak toe te voegen aan "Vandaag"'>
                       {doToday ? <i className="fa-solid fa-heart"></i> : <i className="fa-regular fa-heart"></i>}
                     </button>
 
-                    <button onClick={()=> dispatch(removeTask(id))} >
+                    <button onClick={()=> dispatch(removeTask(id))} title="Klik om de taak te verwijderen" >
                       <i className="fa-solid fa-xmark"></i>
                     </button>  
 
@@ -123,7 +108,7 @@ export const Task = ({task}) => {
                     {text && (
                     <p>{text}</p>
                     )}                   
-                    <h5>&nbsp; {getInterval()}</h5>                     
+                    <h5 style={{cursor: "default" }}>&nbsp; {getInterval()}</h5>                     
                     { recurrence.recInterval === "not-recurring" ? null :
                     <ul style={{backgroundColor:(getColor(category)),height:38}}>
                       {getRecurrenceDays()}

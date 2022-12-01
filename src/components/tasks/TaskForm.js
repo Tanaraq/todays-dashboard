@@ -15,7 +15,7 @@ export const TaskForm = ({currentCategory}) => {
         
         let doToday = currentCategory === "today" && recInterval === "not-recurring" ? true : false;
 
-        let weekdays=[]; 
+        let weekdays=[]; // will be an array with 7 boolean values, corresponding with the .getDay() method, therefore starting with sunday  
         const sunday = document.getElementById("check_su");
         const monday = document.getElementById("check_mo"); 
         const tuesday = document.getElementById("check_tu");
@@ -23,7 +23,7 @@ export const TaskForm = ({currentCategory}) => {
         const thursday = document.getElementById("check_th");
         const friday = document.getElementById("check_fr");
         const saturday = document.getElementById("check_sa");
-        //weekdays will be an array with 7 boolean values, corresponding with the .getDay() method, therefore starting with sunday        
+              
         if(recInterval === "not-recurring"){
             weekdays= [false, false, false, false, false, false, false];
         } else {
@@ -130,31 +130,31 @@ export const TaskForm = ({currentCategory}) => {
             { (recInterval === "monthly_1" || recInterval === "monthly_2"|| recInterval === "monthly_3" || recInterval === "monthly_4") &&
             <ul>
                 <li>
-                    <input type="radio" id="check_mo" name="check_day" value="check_mo" className="form-check-input"/>
+                    <input type="radio" id="check_mo" name="check_day" value="check_mo" />
                     <label htmlFor="check_mo">M</label>
                 </li>
                 <li>
-                    <input type="radio" id="check_tu" name="check_day" value="check_tu" className="form-check-input"/>
+                    <input type="radio" id="check_tu" name="check_day" value="check_tu" />
                     <label htmlFor="check_tu">D</label>
                 </li>
                 <li>
-                    <input type="radio" id="check_we" name="check_day" value="check_we" className="form-check-input"/>
+                    <input type="radio" id="check_we" name="check_day" value="check_we" />
                     <label htmlFor="check_we">W</label>
                 </li>
                 <li>
-                    <input type="radio" id="check_th" name="check_day" value="check_th" className="form-check-input"/>
+                    <input type="radio" id="check_th" name="check_day" value="check_th" />
                     <label htmlFor="check_th">D</label>
                 </li>
                 <li>
-                    <input type="radio" id="check_fr" name="check_day" value="check_fr" className="form-check-input"/>
+                    <input type="radio" id="check_fr" name="check_day" value="check_fr" />
                     <label htmlFor="check_fr">V</label>
                 </li>
                 <li>
-                    <input type="radio" id="check_sa" name="check_day" value="check_sa" className="form-check-input"/>
+                    <input type="radio" id="check_sa" name="check_day" value="check_sa" />
                     <label htmlFor="check_sa">Z</label>
                 </li>
                 <li>
-                    <input type="radio" id="check_su" name="check_day" value="check_su" className="form-check-input"/>
+                    <input type="radio" id="check_su" name="check_day" value="check_su" />
                     <label htmlFor="check_su">Z</label>
                 </li>
             </ul>  

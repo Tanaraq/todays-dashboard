@@ -1,12 +1,12 @@
-import React, {useState} from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { CalendarForm } from './components/CalendarForm';
-import { CalendarDate } from './components/CalendarDate';
-import { selectDays } from "./calendarSlice";
+import { CalendarTile } from './components/CalendarTile';
+import { selectBirthdays } from "./calendarSlice";
 
 
 export const Calendar = () => {
-    const specialDays= useSelector(selectDays);
+    const birthdays= useSelector(selectBirthdays);
 
     return (
         <div className='calendar container'>
@@ -14,9 +14,9 @@ export const Calendar = () => {
             <CalendarForm />
             
             <div className="calendarEntries">
-            {specialDays.map((day,index) => {
+            {birthdays.map((day,index) => {
                 return (
-                    <CalendarDate key={index} day={day}/>
+                    <CalendarTile key={index} day={day}/>
                 )
             })}
             </div>

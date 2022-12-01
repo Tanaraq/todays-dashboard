@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const tasksSlice = createSlice({
     name:'tasks',
     initialState: {
-        tasks: [
+        tasks: [ //examples:
             {id:1, title:"Studeren", category:"study", isDone: false, doToday: false, recurrence: {recInterval: "weekly",
             weekdays: [false,true,true,true,true,true,false]}},
             {id:2, title:"DuoLingo", category:"study", isDone: false, doToday: false, recurrence: {recInterval: "weekly",
@@ -58,40 +58,40 @@ export const selectTodayTasks = (state) =>{
     //find out what day it is today:
     let currentDate = new Date();    
     let today = currentDate.getDay(); //returns a number from 0 to 6, indicating su-mo-tu-we-th-fr-sa-su
-    let tasks = state.tasks.tasks; //recurrence.weekdays is always an array with 7 boolean values, corresponding with the .getDay() method
+    let tasks = state.tasks.tasks; //recurrence.weekdays is an array with 7 boolean values, corresponding with the .getDay() method
 
     let todayTasks= [];
     // if recInterval = weekly :
     const weeklyTasks = tasks.filter(task => task.recurrence.recInterval === "weekly");
-    weeklyTasks.map((task) => {
+    weeklyTasks.forEach((task) => {
         if (task.recurrence.weekdays[today] === true){
             todayTasks.push(task);
         }
     })
     // if recInterval = monthly_1 :
     const monthly_1_Tasks = tasks.filter(task => task.recurrence.recInterval === "monthly_1");
-    monthly_1_Tasks.map((task) => {
+    monthly_1_Tasks.forEach((task) => {
         if (task.recurrence.weekdays[today] === true && currentDate.getDate() < 8 ){
             todayTasks.push(task);
         }
     })
     // if recInterval = monthly_2 :
     const monthly_2_Tasks = tasks.filter(task => task.recurrence.recInterval === "monthly_2");
-    monthly_2_Tasks.map((task) => {
+    monthly_2_Tasks.forEach((task) => {
         if (task.recurrence.weekdays[today] === true && currentDate.getDate() > 7 && currentDate.getDate() <15 ){
             todayTasks.push(task);
         }
     })
     // if recInterval = monthly_3 :
     const monthly_3_Tasks = tasks.filter(task => task.recurrence.recInterval === "monthly_3");
-    monthly_3_Tasks.map((task) => {
+    monthly_3_Tasks.forEach((task) => {
         if (task.recurrence.weekdays[today] === true && currentDate.getDate() > 14 && currentDate.getDate() < 22 ){
             todayTasks.push(task);
         }
     })
     // if recInterval = monthly_4 :
     const monthly_4_Tasks = tasks.filter(task => task.recurrence.recInterval === "monthly_4");
-    monthly_4_Tasks.map((task) => {
+    monthly_4_Tasks.forEach((task) => {
         if (task.recurrence.weekdays[today] === true && currentDate.getDate() > 21 && currentDate.getDate() < 29){
             todayTasks.push(task);
         }

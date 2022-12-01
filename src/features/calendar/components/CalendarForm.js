@@ -4,15 +4,15 @@ import { addDay, editDay } from "../calendarSlice";
 
 export const CalendarForm =({dayToEdit}) =>{
     const dispatch = useDispatch();
-    const [ text, setText ] = useState( dayToEdit? dayToEdit.text : "" );
+    const [ name, setName ] = useState( dayToEdit? dayToEdit.text : "" );
     const [ date, setDate ] = useState( dayToEdit? dayToEdit.date : "");
     const [isActive, setIsActive ] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const newCalendarEntry = { id:(dayToEdit? dayToEdit.id : Date.now()), text:text, date:date};
+        const newCalendarEntry = { id:(dayToEdit? dayToEdit.id : Date.now()), name:name, date:date};
         //console.log(newCalendarEntry);
-        if (newCalendarEntry.text === "") {
+        if (newCalendarEntry.name === "") {
             return;
         }
         if(dayToEdit){
@@ -20,7 +20,7 @@ export const CalendarForm =({dayToEdit}) =>{
         } else {
         dispatch(addDay(newCalendarEntry));
         };
-        setText("");
+        setName("");
         setDate("");
         setIsActive(false);
     }
@@ -28,11 +28,11 @@ export const CalendarForm =({dayToEdit}) =>{
     return(
         <form onSubmit={handleSubmit} className="calendarForm">
             <input 
-                name="text" 
+                name="name" 
                 type="text" 
-                value={text} 
-                onChange = {((e) => setText(e.target.value))}
-                placeholder = "naam / gebeurtenis "
+                value={name} 
+                onChange = {((e) => setName(e.target.value))}
+                placeholder = "naam"
                 required
                 />
             <input

@@ -22,18 +22,18 @@ export const Today = () => {
       if ( time.getDate() !== today.getDate() ) {
         // If the date has changed, set the date to the new date, and for every task set doToday=false. 
         today = time
-        allTasks.map((task)=>{
+        allTasks.forEach((task)=>{
           dispatch(setDoTodayIsFalse(task.id))
         })        
       } 
-      //DAYSTART: set doToday=true for the recurring tasks that day
-      todayTasks.map((task) => {
+      //DAY-START: set "doToday=true" for the recurring tasks that day
+      todayTasks.forEach((task) => {
         dispatch(setDoTodayIsTrue(task.id))
       });
     }
   });
 
-  //then select allTasks base on .doToday===true (this way you get both the recurring tasks AND the tasks that are manually set to doToday!)
+  //then select allTasks base on "doToday===true" (so you get both the recurring tasks AND the tasks that are manually set to doToday)
   const tasks = allTasks.filter(task => task.doToday === true);
 
   return (

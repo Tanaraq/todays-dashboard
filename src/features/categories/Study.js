@@ -7,7 +7,6 @@ import { TaskForm } from "../../components/tasks/TaskForm";
 
 export const Study = () => {
   const allTasks = useSelector(selectAllTasks);
-  //console.log(allTasks);
   const tasks = allTasks.filter(task => task.category === "study");
 
       return (

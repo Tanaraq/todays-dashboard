@@ -15,7 +15,7 @@ export const Weather = () => {
     );
 
     return(
-        <div className="weather segment" onClick={() => setIsActive(!isActive)}>
+        <div className="weather segment" onClick={() => setIsActive(!isActive)} title="Klik voor meer info">
             <h3>{weather.location}</h3> 
             <div className= "row">
                 <div className="column">                    
@@ -23,7 +23,7 @@ export const Weather = () => {
                 </div>
                 <div>
                     <p>temp.: {weather.temp}℃ </p>
-                    <p> neerslag: {weather.neerslag}%</p>
+                    <p>neerslag: {weather.neerslag}%</p>
                     <p>windkracht {weather.winds}, {weather.windr}</p>
                     
                 </div>  
@@ -32,7 +32,7 @@ export const Weather = () => {
             {isActive &&
             <div>
                 <p>nu: {weather.samenv}</p>
-                <p>straks: {weather.verw}</p>
+                <p>later: {weather.verw}</p>
             </div>
             }
 

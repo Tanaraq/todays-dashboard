@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { selectDays } from "../../features/calendar/calendarSlice";
+import { selectBirthdays } from "../../features/calendar/calendarSlice";
 
 
 export const Header = () => {
@@ -19,13 +19,13 @@ export const Header = () => {
     let month = months[cMonth];
 
     // to compare the current date with the dates from the Calendar (BUT only month & day, else birthdays won't work!):
-    const specialDays = useSelector(selectDays); 
+    const birthdays = useSelector(selectBirthdays); 
 
-    let birthdayPpl = [];  // array, because multiple ppl can possibly share the same birthday!
-    const name = specialDays.map((day)=> {
+    let birthdayPpl = [];  // array, because multiple ppl can possibly share the same birthday
+    birthdays.forEach((day)=> {
         let dayArray = day.date.split('-');
-        //console.log(dayArray); // = { '1978','11','30'}
-        //console.log(cMonth+1, cDay); // = { 11, 30 } subtle difference: equal, but not deep-equal
+        //console.log(dayArray); // logs { '1978','11','30'}
+        //console.log(cMonth+1, cDay); // logs { 11, 30 } subtle difference: equal, but not deep-equal
         if ( dayArray[1] == cMonth+1 && dayArray[2] == cDay){
             birthdayPpl.push(day);
         }
