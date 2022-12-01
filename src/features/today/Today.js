@@ -18,7 +18,7 @@ export const Today = () => {
     // If we haven't checked yet, or if it's been more than a minute since the last check
     if ( !lastUpdate || ( time.getTime() - lastUpdate.getTime() ) > 60000 ) {
       // Set the last time we checked, and then check if the date has changed.
-      lastUpdate = time
+      lastUpdate = time;
       if ( time.getDate() !== today.getDate() ) {
         // If the date has changed, set the date to the new date, and for every task set doToday=false. 
         today = time
@@ -33,7 +33,7 @@ export const Today = () => {
     }
   });
 
-  //then select allTasks base on .doToday===true (this way you get both the recurring tasks AND the tasks that were manually set to doToday!)
+  //then select allTasks base on .doToday===true (this way you get both the recurring tasks AND the tasks that are manually set to doToday!)
   const tasks = allTasks.filter(task => task.doToday === true);
 
   return (

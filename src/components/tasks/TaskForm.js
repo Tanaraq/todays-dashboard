@@ -13,7 +13,7 @@ export const TaskForm = ({currentCategory}) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        let doToday = currentCategory === "today" ? true : false;
+        let doToday = currentCategory === "today" && recInterval === "not-recurring" ? true : false;
 
         let weekdays=[]; 
         const sunday = document.getElementById("check_su");
@@ -34,7 +34,7 @@ export const TaskForm = ({currentCategory}) => {
             id: Date.now(), 
             title:title , 
             text:text || "", 
-            category:category, 
+            category: category, 
             isDone: false, 
             doToday: doToday,
             recurrence: {
@@ -74,7 +74,8 @@ export const TaskForm = ({currentCategory}) => {
                 placeholder = "omschrijving (optioneel)"                  
                 />  
 
-            <select value={category} onChange = {((e) => setCategory(e.target.value))} >
+            <select value={category} onChange = {((e) => setCategory(e.target.value))}>
+                <option value="today" disabled hidden>Kies een categorie:</option>
                 <option value="study">studie</option>
                 <option value="sport">sport</option>
                 <option value="house">huis & tuin</option>
