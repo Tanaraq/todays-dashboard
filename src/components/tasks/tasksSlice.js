@@ -4,16 +4,16 @@ export const tasksSlice = createSlice({
     name:'tasks',
     initialState: {
         tasks: [
-            {id:0, title:"Afwassen", category:"house", isDone: false, doToday: true, recurrence: {recInterval: "week",
+            {id:0, title:"Afwassen", category:"house", isDone: false, doToday: true, recurrence: {recInterval: "weekly",
             weekdays: [false,false,false,false,false,false,false]}},
-            {id:1, title:"Was ophangen", category:"house", isDone: false, doToday: false, recurrence: {recInterval: "week",
+            {id:1, title:"Was ophangen", category:"house", isDone: false, doToday: false, recurrence: {recInterval: "weekly",
             weekdays: [false,false,false,false,false,true,false]}},
-            {id:2, title:"Codecademy", category:"study", isDone: false, doToday: false, recurrence: {recInterval: "week",
+            {id:2, title:"Codecademy", category:"study", isDone: false, doToday: false, recurrence: {recInterval: "weekly",
             weekdays: [false,true,true,true,true,true,false]}},
-            {id:3, title:"Yoga", category:"sport", isDone: false, doToday: false, recurrence: {recInterval: "week",
+            {id:3, title:"Yoga", category:"sport", isDone: false, doToday: false, recurrence: {recInterval: "weekly",
                 weekdays: [false,true,true,false,true,true,false]}},
-            {id:4, title:"Canna's", text:"uit de tuin naar binnen halen", category:"house", isDone: false, doToday: false, recurrence: {recInterval: "week",
-            weekdays: [false,false,false,false,false,true,false]}}
+            {id:4, title:"Canna's", text:"uit de tuin naar binnen halen", category:"house", isDone: false, doToday: false, recurrence: {recInterval: "not-recurring",
+            weekdays: [false,false,false,false,false,false,false]}}
         ],
     },
     reducers: {

@@ -40,7 +40,7 @@ ul {
 }
  
 .container {
-  height: 50vh;  
+  min-height: 50vh;  
   background-color: rgb(255, 255, 255, 0.6);  
   border: 5px solid grey;
   border-radius: 0 0 1em 1em ;

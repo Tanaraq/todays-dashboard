@@ -85,7 +85,7 @@ export const TaskForm = ({currentCategory}) => {
                        
             <select value={recInterval} onChange = {((e) => setRecInterval(e.target.value))} >
                 <option value="not-recurring">Niet herhaald</option>
-                <option value="weeks">Elke week op:</option>
+                <option value="weekly">Elke week op:</option>
                 {/*}
                 <option value="monthly_1">Eens per maand op de eerste:</option> 
                 <option value="monthly_2">Eens per maand op de tweede:</option> 

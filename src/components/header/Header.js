@@ -27,7 +27,6 @@ export const Header = () => {
         //console.log(dayArray); // = { '1978','11','30'}
         //console.log(cMonth+1, cDay); // = { 11, 30 } subtle difference: equal, but not deep-equal
         if ( dayArray[1] == cMonth+1 && dayArray[2] == cDay){
-            console.log("bingo!");
             birthdayPpl.push(day.text);
         }
     });

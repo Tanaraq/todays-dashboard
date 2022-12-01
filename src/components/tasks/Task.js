@@ -6,8 +6,32 @@ import Confetti from "react-dom-confetti";
 export const Task = ({task}) => {    
     const [ isActive, setIsActive] = useState(false);   // to fold out the task (accordion-menu)
     const dispatch = useDispatch();
-    const {id,title,text, category, isDone, doToday} = task;
-    //console.log(task);
+    const {id,title,text, category, isDone, doToday, recurrence} = task;
+    
+    //to print recurrence days:
+    const getRecurrenceDays = () => {
+      console.log(recurrence.recInterval, recurrence.weekdays);
+      const days = ["Zo","Ma","Di","Wo","Do","Vr","Za"];
+      let recList=[]
+      for (let i=0; i<recurrence.weekdays.length; i++){
+        if (recurrence.weekdays[i] === true ){
+          recList.push(
+            <li key={i}>
+              <input type="checkbox" checked readOnly/>
+              <label>{days[i]}</label>
+            </li>
+          );
+        } else {
+          recList.push(
+            <li key={i}>
+              <input type="checkbox" readOnly/>
+              <label>{days[i]}</label>
+            </li>
+          );
+        }
+      }
+      return recList;
+    }
 
     const getIcon=(category) => {
       switch(category){
@@ -72,10 +96,13 @@ export const Task = ({task}) => {
                 <div className="project-foldout">
                     {text && (
                     <p>{text}</p>
-                    )}
-                    {task.dueDate && (
-                    <h6>{task.dueDate}</h6>
-                    )}
+                    )}                   
+                    <h5>&nbsp; {recurrence.recInterval}</h5>                     
+                    { recurrence.recInterval === "not-recurring" ? null :
+                    <ul style={{backgroundColor:(getColor(category)),height:38}}>
+                      {getRecurrenceDays()}
+                    </ul>  
+                    }  
                 </div>
             }
                                 
