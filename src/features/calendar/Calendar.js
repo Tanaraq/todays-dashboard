@@ -13,7 +13,7 @@ export const Calendar = () => {
             <h2>Verjaardags Kalender:</h2>
             <CalendarForm />
             
-            <div className="calendarEntries">
+            <div className="calendar-list">
             {birthdays.map((day,index) => {
                 return (
                     <CalendarTile key={index} day={day}/>

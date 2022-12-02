@@ -1,9 +1,19 @@
+/* CALENDAR */
+.calendar-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+/*  DATE */
+
 .date {
     display: flex;
+    flex-direction: column;
     width: 290px;
     color: white; 
     background-color: #6295A9;
-    text-shadow: 1px 1px 4px #2e2744;
+    text-shadow: 1px 1px 4px #2E2744;
     margin: 0.2em 0;  
     border: 1px solid grey; 
     border-radius: 0.3em;
@@ -24,8 +34,8 @@
     width: 400px;
     padding: 0.5em;  
     display: flex; 
-    
 }
+
 /* FORM */
 .calendarForm {
     display: flex;
@@ -52,8 +62,4 @@
     cursor: pointer;
 }
 
-@media only screen and (max-width: 680px) {
-    .date {
-        flex-direction: column;
-    }    
-}
+
