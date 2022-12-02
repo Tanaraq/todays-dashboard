@@ -3,10 +3,11 @@ import { useDispatch } from "react-redux";
 import { removeTask, toggleDoToday, toggleTaskDone } from "./tasksSlice";
 import Confetti from "react-dom-confetti"; 
 
-export const Task = ({task}) => {    
+export const Task = ({task, currentCategory}) => {    
     const [ isActive, setIsActive] = useState(false);   // to fold out the task (accordion-style)
     const dispatch = useDispatch();
     const {id,title,text, category, isDone, doToday, recurrence} = task;
+    const today = currentCategory === "today"; //boolean
     
     // to render recInterval in an userfriendly format):
     const getInterval = () => {
@@ -93,13 +94,15 @@ export const Task = ({task}) => {
                         <Confetti active={isDone} config={{ spread: 360 }} />
                     </button>  
                     
-                    <button onClick={()=> dispatch(toggleDoToday(id))} title='Klik om de taak toe te voegen aan "Vandaag"'>
+                    <button onClick={()=> dispatch(toggleDoToday(id))} title='Voeg toe aan "Vandaag"'>
                       {doToday ? <i className="fa-solid fa-heart"></i> : <i className="fa-regular fa-heart"></i>}
                     </button>
 
-                    <button onClick={()=> dispatch(removeTask(id))} title="Klik om de taak te verwijderen" >
+                    {!today &&
+                    <button onClick={()=> dispatch(removeTask(id))} title="Taak verwijderen" >
                       <i className="fa-solid fa-xmark"></i>
                     </button>  
+                    }
 
                 </div>
             </div>

@@ -40,7 +40,7 @@ export const Today = () => {
   <div className='today container'>
 
     <TaskForm currentCategory="today"/>
-    <TaskList tasks={tasks} />        
+    <TaskList tasks={tasks} currentCategory="today"/>        
   
   </div>
   )

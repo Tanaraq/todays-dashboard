@@ -1,7 +1,7 @@
 import React from "react";
 import { Task } from '../tasks/Task';
 
-export const TaskList =({tasks}) =>{
+export const TaskList =({tasks, currentCategory}) =>{
     return (
         <div>
         <div className="space-for-form"></div>
@@ -12,7 +12,7 @@ export const TaskList =({tasks}) =>{
                     key={task.title}
                     className={`${task.isDone ? "task-done" : ""}`}
                 >
-                    <Task task={task} />
+                    <Task task={task} currentCategory={currentCategory} />
                     
                 </li>
             ))}
