@@ -1,46 +1,31 @@
-# Getting Started with Create React App and Redux
+# Personal DashBoard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+I like to start my day with a cup of coffee, contemplating what today will bring and making a list with the things I want to do that day.
+This app was a really nice and usefull practice project for me!
 
-## Available Scripts
+*Note: the app itself is in my native language, Dutch, however all the code is in English*
 
-In the project directory, you can run:
+## Features: 
 
-### `npm start`
+### Day, date, and ***birthday-notifications***!
+In the header you will find the current day and date, followed by a calendar icon. Clicking it will open up a birthday-calendar that you can fill with all your friends & family. If today is actually the birthday of somebody in your calendar, the notification in the header will tell you so! (If not, it says "Today is a beautiful day".)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Weather-widget
+Top left you will find a weather-widget, hooked up to the API of the dutch meteorological institute KNMI, see link in the footer. Clicking the weather-icon will unfold a short forecast for today/tomorrow
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Taskboard
+The main section is my taskboard with several tabs: every tab is a category with it's own color and icon. A task that is assigned to a category will also show that same color and icon. Tasks can be made ***recurring***: ideal for training programs, household-chores, keeping track of habits or simply not forgetting to water your plants. 
+Every tasks has buttons to complete the tasks, remove it, or click the heart-button to add it to the do-Today-list.
 
-### `npm test`
+The first tab of the taskboard is called ***"Today": every task that is recurring today will show up here!***
+Btw, if you decide not to do the task today, you can remove it from "Today" by clicking its heart-button again. However! if it is a task that is recurring today, it will pop straight back up until you finish it! At first glance I thought of this as an error.... but I decided to keep it like this: sometimes it's kinda ok to not be able to get rid of a task too easily.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Quote-of-the-Day
+At the bottom you will find a quote about life: it is a daily random quote brought to you by the API of https://theysaidso.com .
 
-### `npm run build`
+## Techniques used:
+React-Redux, Redux-Toolkit, Redux-persist
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
