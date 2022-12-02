@@ -1,6 +1,6 @@
 .date {
     display: flex;
-    width: 350px;
+    width: 290px;
     color: white; 
     background-color: #6295A9;
     text-shadow: 1px 1px 4px #2e2744;
@@ -12,7 +12,7 @@
 .date-box {
     display: flex;
     align-items: center;
-    width: 350px;  
+    width: 290px;  
     position: relative; 
 }
 
@@ -22,8 +22,7 @@
 
 .date-title {
     width: 400px;
-    padding: 0.5em;   
-    
+    padding: 0.5em;  
     display: flex; 
     
 }
@@ -31,8 +30,8 @@
 .calendarForm {
     display: flex;
     flex-direction: row;
-    width: 350px;
-    padding: 5px;
+    width: 300px;
+    padding: 5px 0;
 }
 
 .calendarForm input {
@@ -51,4 +50,10 @@
     border: 0;
     font-weight: bolder;
     cursor: pointer;
+}
+
+@media only screen and (max-width: 680px) {
+    .date {
+        flex-direction: column;
+    }    
 }

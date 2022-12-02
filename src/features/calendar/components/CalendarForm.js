@@ -35,6 +35,7 @@ export const CalendarForm =({dayToEdit}) =>{
                 placeholder = "naam"
                 required
                 pattern="[a-zA-Z0-9 ()]+" minLength="3" maxLength="30"
+                style={{width:150}}
                 />
             <input
                 name="date" 
@@ -43,7 +44,7 @@ export const CalendarForm =({dayToEdit}) =>{
                 onChange = {((e) => setDate(e.target.value))}
                 required
             />
-            <input type='submit' value={dayToEdit? "edit": "voeg toe"}/>
+            <input type='submit' value="ok"/>
         </form>
     )
 }

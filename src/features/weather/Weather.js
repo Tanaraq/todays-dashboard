@@ -18,14 +18,12 @@ export const Weather = () => {
         <div className="weather segment" onClick={() => setIsActive(!isActive)} title="Klik voor meer info">
             <h3>{weather.location}</h3> 
             <div className= "row">
-                <div className="column">                    
-                    <img src={weather.img} alt="weather-icon" width="70" height="70"></img>
-                </div>
-                <div>
+                <img src={weather.img} alt="weather-icon" width="70" height="70" id="weather-icon"></img>
+                
+                <div id="weather-stats">
                     <p>temp.: {weather.temp}℃ </p>
                     <p>neerslag: {weather.neerslag}%</p>
                     <p>windkracht {weather.winds}, {weather.windr}</p>
-                    
                 </div>  
             </div>
 
