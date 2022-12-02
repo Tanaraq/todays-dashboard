@@ -9,10 +9,13 @@ export const calendarSlice = createSlice({
     },
     reducers: {
         addDay: (state,action) => {
+            console.log(action.payload);
             state.birthdays.push(action.payload);
         },
         removeDay: (state,action) =>{            
-            const index = state.birthdays.findIndex((day) => day.id === action.payload);
+            console.log(action.payload);
+            const index = state.birthdays.findIndex((day) => day.id === action.payload.id);
+            console.log(index);
             state.birthdays.splice(index, 1);
         },
         editDay: (state,action) =>{

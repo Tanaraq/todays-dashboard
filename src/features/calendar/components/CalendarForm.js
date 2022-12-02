@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addDay, editDay } from "../calendarSlice";
 
-export const CalendarForm =({dayToEdit}) =>{
+export const CalendarForm =({dayToEdit, setIsActive}) =>{
     const dispatch = useDispatch();
-    const [ name, setName ] = useState( dayToEdit? dayToEdit.text : "" );
+    const [ name, setName ] = useState( dayToEdit? dayToEdit.name : "" );
     const [ date, setDate ] = useState( dayToEdit? dayToEdit.date : "");
-    const [isActive, setIsActive ] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -22,7 +21,7 @@ export const CalendarForm =({dayToEdit}) =>{
         };
         setName("");
         setDate("");
-        setIsActive(false);
+        setIsActive(false); //to close the form when done editing
     }
     
     return(

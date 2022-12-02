@@ -38,6 +38,7 @@ style="color: #6295A9"; today
     padding: 1em;
     text-align: left;
     cursor: pointer;
+    transition: all 1000ms ease;
 }
 
 .weather p, .weather h3 { 
@@ -78,6 +79,9 @@ nav > a {
 }
 
 nav > a.active {
+    font-weight: 700;
+  }
+  nav > a:hover {
     font-weight: 700;
   }
 
