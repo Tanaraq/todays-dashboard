@@ -27,7 +27,7 @@ export const TaskForm = ({currentCategory}) => {
         if(recInterval === "not-recurring"){
             weekdays= [false, false, false, false, false, false, false];
         } else {
-        weekdays = [sunday.checked, monday.checked, tuesday.checked, wednesday.checked, thursday.checked, friday.checked, saturday.checked]; 
+            weekdays = [sunday.checked, monday.checked, tuesday.checked, wednesday.checked, thursday.checked, friday.checked, saturday.checked]; 
         };
         
         const newTask= {
@@ -63,15 +63,17 @@ export const TaskForm = ({currentCategory}) => {
                 onChange = {((e) => setTitle(e.target.value))}
                 placeholder = "nieuwe taak"
                 required
+                pattern="[a-zA-Z0-9 -?!]+" minLength="3" maxLength="30"
                 />
             {!title? null: (    
             <>
-            <input
+            <textarea
                 name="text" 
-                type="text" 
+                rows="3" cols="50"
                 value={text || ""} 
                 onChange = {((e) => setText(e.target.value))}
-                placeholder = "omschrijving (optioneel)"                  
+                placeholder = "omschrijving (optioneel)"   
+                pattern="[a-zA-Z0-9 *?!]+" minLength="3" maxLength="150"               
                 />  
 
             <select value={category} required onChange = {((e) => setCategory(e.target.value))}  >

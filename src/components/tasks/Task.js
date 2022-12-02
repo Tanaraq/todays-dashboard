@@ -106,9 +106,9 @@ export const Task = ({task}) => {
             {isActive && 
                 <div className="project-foldout">
                     {text && (
-                    <p>{text}</p>
+                    <p>&nbsp; {text}</p>
                     )}                   
-                    <h5 style={{cursor: "default" }}>&nbsp; {getInterval()}</h5>                     
+                    <h5 style={{cursor: "default" }}>&nbsp;{getInterval()}</h5>                     
                     { recurrence.recInterval === "not-recurring" ? null :
                     <ul style={{backgroundColor:(getColor(category)),height:38}}>
                       {getRecurrenceDays()}

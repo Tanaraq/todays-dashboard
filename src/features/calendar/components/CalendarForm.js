@@ -34,6 +34,7 @@ export const CalendarForm =({dayToEdit}) =>{
                 onChange = {((e) => setName(e.target.value))}
                 placeholder = "naam"
                 required
+                pattern="[a-zA-Z0-9 ()]+" minLength="3" maxLength="30"
                 />
             <input
                 name="date" 
